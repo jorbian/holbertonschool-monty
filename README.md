@@ -1,7 +1,8 @@
-<h1> <p align="center">
-  0x19. C - Stacks, Queues - LIFO, FIFO </h1>
-  An interpreter for Monty ByteCodes files </p>
+<p align="center">
+<h1>0x19. C - Stacks, Queues - LIFO, FIFO</h1>
+An interpreter for Monty ByteCodes files.</p>
   
-<h2> <p align="center">
-Table of Contents
-<a href="#Overview"Overview</a> | <a href="#Glossary">Glossary</a> | <a
+<h2>Table of Contents</h2>
+<p align="center">
+<a href="#overview">Overview</a> | <a href="#glossary">Glossary</a> | <a
+</p>
