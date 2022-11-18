@@ -1,0 +1,29 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+OVERVIEW\
+\
+There are four steps we need to have figured out:\
+\
+1. Figuring out if the user entered a file name, if they did if it exits, and if it exists getting whatever is written inside it.\
+2. Once we have what\'92s written inside of it, go over it line by line and find the opcode (if there is one).\
+3. Be able to take the op codes on by one and do whatever it is they\'92re supposed to do.\
+4. Repeat steps two and three until we\'92ve gone through each line of the file.\
+\
+WHAT I DID LAST NIGHT\
+\
+1. I sank way more time than I needed to into a Python prototype I had to throw out , getting WAY out of hand, to a point, basically where I was skipping to the Simple Shell project. This is something I may or may not still do.\
+2. With the C code I ended up writing, I ended up getting stuck between Step One and Step Two of our process. I was able to make something that can read a file and spit it back out line by line but that\'92s pretty much it. I left the executable there in the root directory so you can see for yourself.\
+3. Tried to make sure I had a grasp of what was going on and get things organized so we can both be as productive as possible.\
+\
+WHAT YOU CAN DO RIGHT NOW\
+\
+1. Look over the stuff I did last night, reading the bytecode files, and see if you can follow it. Could the descriptions be better? Could the variable names be different to make it easier to understand? I went into it with literally no plan and could definitely use feedback on how this could be clearer. How can this code be organized that anyone could understand it and add something or fix a problem if they had to.\
+2. Don\'92t be afraid to sit down and just code! I have Step One (getting the file and what\'92s inside it) done\'85 kind of\'85 sort of\'85 not really.  I wouldn\'92t be that difficult to skip right to Step Two (picking out the opcodes). I have the contents of the test files from task 0 and task 1 hardcoded into two macros in \'93test_data.h.\'94 So long as you include that file you can automatically have data to work with assigning TASK0 or TASK1 to a string.\
+3. Figure out how to make sure errors get handled the way we\'92re supposed to. Right now, I have a header with all of the error messages they gave us and have them passed to a single function called \'93throw_error().\'94 For example, \'93throw_error(BAD_FILE)\'94 or \'93throw_error(COULDNT_MALLOC).\'94 That works great for those but what about the ones that are supposed to show line numbers? I think it would be cool if we could figure out something with it as a variadic function that works with or without parameters.\
+4. Think of what to do about Steps Three and Four, once we have the opcodes actually doing what they tell us to do,  I honestly still have no clue exactly what to do.}
