@@ -6,3 +6,6 @@ An interpreter for Monty ByteCodes files.</p>
 <p align="center">
 <a href="#overview">Overview</a> | <a href="#glossary">Glossary</a> | <a href="#compilers">Compiler</a> | <a href="#authors">Authors</a>
 </p>
+
+<p align="center">
+<h2>Overview</h2>
