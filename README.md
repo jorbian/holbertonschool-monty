@@ -4,5 +4,5 @@ An interpreter for Monty ByteCodes files.</p>
   
 <h2>Table of Contents</h2>
 <p align="center">
-<a href="#overview">Overview</a> | <a href="#glossary">Glossary</a> | <a
+<a href="#overview">Overview</a> | <a href="#glossary">Glossary</a> | <a href="#compilers">Compiler</a> | <a href"#authors">Authors</a>
 </p>
