@@ -1,8 +1,6 @@
 #ifndef LISTS_H
 #define LISTS_H
 
-#include "monty.h"
-
 /**
  * struct dlistint_s - doubly linked list
  * @n: integer

@@ -1,9 +1,7 @@
 #ifndef OP_CODE_H
 #define OP_CODE_H
 
-#include "monty.h"
-#include "lists.h"
-
+#include ""
 /* MAKE SURE THESE ARE KEPT UPDATED AND MATCH! */
 #define NUM_OF_OPS 6
 #define NAME_BUFFER_SIZE 5
