@@ -5,6 +5,9 @@ void interpret_file(char (*file_buffer)[MAX_NUM_LINES])
     int i = 0;
     int contains_opcode;
 
+    Sstack_t *top_of_stack = NULL;
+    Sstack_t floor = {FLOOR, NULL, NULL};
+
     instruct_t *opcode_chart = NULL;
     fill_chart_in(&opcode_chart);
 

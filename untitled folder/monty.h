@@ -2,19 +2,19 @@
 #define MONTY_H
 
 /* PROJECT SPECIFIC HEADERS */
+#include "data_structures.h"
 #include "op_code.h"
 #include "errors.h"
-#include "lists.h"
 
 /* STANDARD LIBRARY HEADERS */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stddef.h>
 
 /* FILE BUFFER LENGTHS */
 #define MAX_LINE_LENGTH 255
 #define MAX_NUM_LINES 50
+#define LID -2147483647
 
 void load_file(
     char (*file_buffer)[MAX_NUM_LINES],
@@ -29,7 +29,8 @@ void fill_chart_in(instruct_t **top_of_chart);
 instruct_t *create_instruction(
 	instruct_t **last_entry,
 	const char *next_opcode,
-	void (*next_fp)(dlistint_t **, unsigned int)
+	void (*next_fp)(Sstack_t **, unsigned int)
 );
+
 
 #endif 
