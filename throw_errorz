@@ -1,0 +1,16 @@
+#include "monty.h"
+
+void throw_error(char *message, ...)
+{
+	int line_number = 0;
+	int string = 0;
+	char formatted_message[MAX_MESSAGE_LENGTH];
+
+	va_list args;
+
+	strcpy(formatted_message, message);
+
+	perror(formatted_message);
+	
+	exit(EXIT_FAILURE);
+}
