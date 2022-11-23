@@ -7,7 +7,6 @@
 #include <string.h>
 #include <stddef.h>
 #include <unistd.h>
-#include <ctype.h>
 
 #include "stack.h"
 #include "op_code.h"
@@ -28,13 +27,11 @@ void wipe_buffer(buffer_t *buffer_pointer);
 void find_begining_of_file(buffer_t **buffer_pointer);
 int is_usable_input(char *filename);
 
-int is_number(const char *s);
-void begining_of_chart(instruct_t **chart_pointer);
-instruct_t *create_instruction(
-	instruct_t **last_entry,
-	const char *next_opcode,
-	void (*next_fp)(SSTack_t **, unsigned int)
-);
-void fill_chart_in(instruct_t **top_of_chart);
+char **strtow(char *str, char *delims);
+int is_delim(char ch, char *delims);
+int get_word_length(char *str, char *delims);
+int get_word_count(char *str, char *delims);
+char *get_next_word(char *str, char *delims);
+
 
 #endif 

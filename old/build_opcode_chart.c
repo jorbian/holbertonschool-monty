@@ -10,7 +10,7 @@ void fill_chart_in(instruct_t **top_of_chart)
 {
 	int i;
 	char opcodes[NUM_OF_OPS][NAME_BUFFER_SIZE] = OPCODE_NAMES;
-	void (*fps[NUM_OF_OPS])(SSTack_t **, unsigned int) = FUNCTIONS;
+	void (*fps[NUM_OF_OPS])(dlistint_t **, unsigned int) = FUNCTIONS;
 
 	for (i = 0; i < NUM_OF_OPS; i++)
 	{
@@ -29,7 +29,7 @@ void fill_chart_in(instruct_t **top_of_chart)
 instruct_t *create_instruction(
 	instruct_t **last_entry,
 	const char *next_opcode,
-	void (*next_fp)(SSTack_t **, unsigned int)
+	void (*next_fp)(dlistint_t **, unsigned int)
 )
 {
 	instruct_t *current_entry;
@@ -51,10 +51,4 @@ instruct_t *create_instruction(
 	*last_entry = current_entry;
 
 	return (current_entry);
-}
-
-void begining_of_chart(instruct_t **chart_pointer)
-{
-	while ((*chart_pointer)->prev)
-		*chart_pointer = (*chart_pointer)->prev;
 }
