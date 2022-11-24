@@ -21,12 +21,12 @@ typedef struct instruct_s
 {
         char *opcode;
         void (*f)(stack_t **stack_pointer, unsigned int line_number);
-        struct instruct_s *prev;
         struct instruct_s *next;
+        struct instruct_s *prev;
 } instruct_t;
 
 /* FUNCTIONS TO BUILD THE LIST THE OPCODES ARE STORED IN */
-void fill_chart_in(instruct_t **top_of_chart);
+int fill_chart_in(instruct_t **top_of_chart);
 instruct_t *create_instruction(
 	instruct_t **last_entry,
 	const char *next_opcode,

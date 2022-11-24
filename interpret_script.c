@@ -1,10 +1,8 @@
 #include "monty.h"
 #include "op_code.h"
-
 /**
  * interpret_script - Primary function to execute a Monty bytecodes script.
  * @file_pointer: File descriptor for an open Monty bytecodes script.
- *
  * Return: EXIT_SUCCESS on success, respective error code on failure.
  */
 int interpret_script(FILE *file_pointer)
@@ -17,8 +15,7 @@ int interpret_script(FILE *file_pointer)
 	unsigned int line_number = 0, prev_tok_len = 0;
 	void (*op_func)(stack_t**, unsigned int);
 
-	fill_chart_in(&chart_pointer);
-	if (initialize_stack(&stack_pointer) == EXIT_FAILURE)
+	if (fill_chart_in(&chart_pointer) || initialize_stack(&stack_pointer))
 		return (EXIT_FAILURE);
 
 	while (getline(&line, &len, file_pointer) != -1)
@@ -65,7 +62,6 @@ int interpret_script(FILE *file_pointer)
 		free(line);
 		return (malloc_error());
 	}
-
 	free(line);
 	return (exit_status);
 }
