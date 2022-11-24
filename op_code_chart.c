@@ -2,19 +2,25 @@
 #include "op_code.h"
 
 /**
- * build_instruct_chart - create the instruction chart.
+ * fill_chart_in - create the instruction chart.
  * @top_of_chart: pointer to the top of the chart.
  *
- * Return: nothing for now.
+ * Return: 1 if it managed to fill the chart in. 0 otherwise.
  */
-void fill_chart_in(instruct_t **top_of_chart)
+int fill_chart_in(instruct_t **top_of_chart)
 {
 	int i;
+
 	char opcodes[NUM_OF_OPS][NAME_BUFFER_SIZE] = OPCODE_NAMES;
+
 	void (*fps[NUM_OF_OPS])(stack_t **, unsigned int) = FUNCTIONS;
 
 	for (i = 0; i < NUM_OF_OPS; i++)
-		create_instruction(top_of_chart, opcodes[i], fps[i]);
+	{
+		if (!(create_instruction(top_of_chart, opcodes[i], fps[i])))
+			return (EXIT_FAILURE);
+	}
+	return (EXIT_SUCCESS);
 }
 
 /**
@@ -53,13 +59,15 @@ instruct_t *create_instruction(
 }
 
 /**
- * look_up_instruction - 
- * @chart_pointer: adsf 
- * @token: asfd 
- * 
- * Return: 
+ * look_up_instruction - look for the opcode on the chart
+ * @chart_pointer: exactly what it says on the tin
+ * @token: the token found on the line.
+ * Return:
 */
-void (*look_up_instruction(instruct_t **chart_pointer, char *token))(stack_t**, unsigned int)
+void (*look_up_instruction(
+	instruct_t **chart_pointer,
+	char *token
+	))(stack_t**, unsigned int)
 {
 	instruct_t *current_entry = *chart_pointer;
 
@@ -74,4 +82,21 @@ void (*look_up_instruction(instruct_t **chart_pointer, char *token))(stack_t**, 
 		return (current_entry->f);
 	else
 		return (NULL);
+}
+
+/**
+ * erasse_chart - frees the instruction chart from memory
+ * @hchart_pointer: Exactly what it says on the tin.
+ */
+void erasse_chart(instruct_t *chart_pointer)
+{
+	instruct_t  *tmp;
+
+	while (chart_pointer)
+	{
+		tmp = chart_pointer->next;
+		free(chart_pointer->opcode);
+		free(chart_pointer);
+		chart_pointer = tmp;
+	}
 }
