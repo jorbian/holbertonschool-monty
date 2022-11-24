@@ -12,7 +12,6 @@ int fill_chart_in(instruct_t **top_of_chart)
 	int i;
 
 	char opcodes[NUM_OF_OPS][NAME_BUFFER_SIZE] = OPCODE_NAMES;
-
 	void (*fps[NUM_OF_OPS])(stack_t **, unsigned int) = FUNCTIONS;
 
 	for (i = 0; i < NUM_OF_OPS; i++)
@@ -20,6 +19,7 @@ int fill_chart_in(instruct_t **top_of_chart)
 		if (!(create_instruction(top_of_chart, opcodes[i], fps[i])))
 			return (EXIT_FAILURE);
 	}
+
 	return (EXIT_SUCCESS);
 }
 
