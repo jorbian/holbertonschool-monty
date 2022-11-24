@@ -1,5 +1,5 @@
-#include "include/monty.h"
-#include "include/op_code.h"
+#include "monty.h"
+#include "op_code.h"
 
 /**
  * interpret_script - Primary function to execute a Monty bytecodes script.

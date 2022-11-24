@@ -1,5 +1,5 @@
-#include "include/monty.h"
-#include "include/op_code.h"
+#include "monty.h"
+#include "op_code.h"
 
 /**
  * free_tokens - Frees the global op_toks array of strings.

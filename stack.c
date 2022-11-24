@@ -1,4 +1,4 @@
-#include "include/monty.h"
+#include "monty.h"
 
 /**
  * wipe_stack - frees stack from memory
