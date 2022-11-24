@@ -1,5 +1,5 @@
-#include "include/monty.h"
-#include "include/errors.h"
+#include "monty.h"
+#include "errors.h"
 
 /**
  * usage_error - Prints usage error messages.

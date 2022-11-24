@@ -1,4 +1,4 @@
-#include "include/monty.h"
+#include "monty.h"
 
 char **op_toks = NULL;
 

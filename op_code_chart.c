@@ -1,5 +1,5 @@
-#include "include/monty.h"
-#include "include/op_code.h"
+#include "monty.h"
+#include "op_code.h"
 
 /**
  * build_instruct_chart - create the instruction chart.
