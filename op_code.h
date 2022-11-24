@@ -27,6 +27,7 @@ typedef struct instruct_s
 
 /* FUNCTIONS TO BUILD THE LIST THE OPCODES ARE STORED IN */
 int fill_chart_in(instruct_t **top_of_chart);
+void erasse_chart(instruct_t *chart_pointer);
 instruct_t *create_instruction(
 	instruct_t **last_entry,
 	const char *next_opcode,

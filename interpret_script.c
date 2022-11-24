@@ -56,6 +56,7 @@ int interpret_script(FILE *file_pointer)
 		free_tokens();
 	}
 	wipe_stack(&stack_pointer);
+	erasse_chart(chart_pointer);
 
 	if (line && *line == 0)
 	{
