@@ -27,7 +27,7 @@ int initialize_stack(stack_t **stack_pointer)
 
 	s = malloc(sizeof(stack_t));
 	if (s == NULL)
-		return (malloc_error());
+		return (throw_error(COULDNT_MALLOC, 0, ""));
 
 	s->n = 0;
 	s->prev = NULL;

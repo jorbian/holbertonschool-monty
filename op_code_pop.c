@@ -12,7 +12,7 @@ void pop(stack_t **stack_pointer, unsigned int line_number)
 
 	if ((*stack_pointer)->next == NULL)
 	{
-		set_op_tok_error(pop_error(line_number));
+		set_op_tok_error(throw_error(CANT_POP, line_number, ""));
 		return;
 	}
 

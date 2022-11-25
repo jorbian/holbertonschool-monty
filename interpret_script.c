@@ -9,7 +9,6 @@ int interpret_script(FILE *file_pointer)
 {
 	stack_t *stack_pointer = NULL;
 	instruct_t *chart_pointer = NULL;
-
 	char *line = NULL;
 	size_t len = 0, exit_status = EXIT_SUCCESS;
 	unsigned int line_number = 0, prev_tok_len = 0;
@@ -22,12 +21,15 @@ int interpret_script(FILE *file_pointer)
 	{
 		line_number++;
 		op_toks = strtow(line, DELIMS);
+
 		if (op_toks == NULL)
 		{
 			if (is_empty_line(line, DELIMS))
 				continue;
 			wipe_stack(&stack_pointer);
-			return (malloc_error());
+			erase_chart(chart_pointer);
+
+			return (throw_error(COULDNT_MALLOC, 0, ""));
 		}
 		else if (op_toks[0][0] == '#') /* comment line */
 		{
@@ -38,9 +40,10 @@ int interpret_script(FILE *file_pointer)
 		if (op_func == NULL)
 		{
 			wipe_stack(&stack_pointer);
-			exit_status = unknown_op_error(op_toks[0], line_number);
+			erase_chart(chart_pointer);
+			exit_status = throw_error(BAD_INSTRUCTION, line_number, op_toks[0]);
 			free_tokens();
-			break;
+			exit(exit_status);
 		}
 		prev_tok_len = num_of_tokens();
 		op_func(&stack_pointer, line_number);
@@ -49,7 +52,7 @@ int interpret_script(FILE *file_pointer)
 			if (op_toks && op_toks[prev_tok_len])
 				exit_status = atoi(op_toks[prev_tok_len]);
 			else
-				exit_status = EXIT_FAILURE;
+				exit(EXIT_FAILURE);
 			free_tokens();
 			break;
 		}
@@ -61,7 +64,7 @@ int interpret_script(FILE *file_pointer)
 	if (line && *line == 0)
 	{
 		free(line);
-		return (malloc_error());
+		return (throw_error(COULDNT_MALLOC, 0, ""));
 	}
 	free(line);
 	return (exit_status);

@@ -1,8 +1,6 @@
 #ifndef OPCODE_H
 #define OPCODE_H
 
-#include "monty.h"
-
 /* MAKE SURE THESE ARE KEPT UPDATED AND MATCH! */
 #define NUM_OF_OPS 6
 #define NAME_BUFFER_SIZE 5

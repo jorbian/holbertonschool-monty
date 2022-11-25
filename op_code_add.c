@@ -10,7 +10,7 @@ void add(stack_t **stack_pointer, unsigned int line_number)
 {
 	if ((*stack_pointer)->next == NULL || (*stack_pointer)->next->next == NULL)
 	{
-		set_op_tok_error(short_stack_error(line_number, "add"));
+		set_op_tok_error(throw_error(CANT_ADD, line_number, ""));
 		return;
 	}
 	(*stack_pointer)->next->next->n += (*stack_pointer)->next->n;
