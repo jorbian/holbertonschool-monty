@@ -20,4 +20,4 @@ typedef struct stack_s
 void wipe_stack(stack_t **stack_pointer);
 int initialize_stack(stack_t **stack_pointer);
 
-#endif 
+#endif
