@@ -12,6 +12,7 @@ int fill_chart_in(instruct_t **top_of_chart)
 	int i;
 
 	char opcodes[NUM_OF_OPS][NAME_BUFFER_SIZE] = OPCODE_NAMES;
+
 	void (*fps[NUM_OF_OPS])(stack_t **, unsigned int) = FUNCTIONS;
 
 	for (i = 0; i < NUM_OF_OPS; i++)
@@ -59,21 +60,18 @@ instruct_t *create_instruction(
 }
 
 /**
- * look_up_instruction - look for the opcode on the chart
- * @chart_pointer: exactly what it says on the tin
- * @token: the token found on the line.
- * Return:
+ * look_up_instruct - look for the opcode on the chart
+ * @cp: exactly what it says on the tin
+ * @t: the token found on the line.
+ * Return: function pointer to function
 */
-void (*look_up_instruction(
-	instruct_t **chart_pointer,
-	char *token
-	))(stack_t**, unsigned int)
+void (*look_up_instruct(instruct_t **cp, char *t))(stack_t**, unsigned int)
 {
-	instruct_t *current_entry = *chart_pointer;
+	instruct_t *current_entry = *cp;
 
 	while (current_entry->next)
 	{
-		if (strcmp(token, current_entry->opcode) == 0)
+		if (strcmp(t, current_entry->opcode) == 0)
 			break;
 		current_entry = current_entry->next;
 	}
@@ -85,10 +83,11 @@ void (*look_up_instruction(
 }
 
 /**
- * erasse_chart - frees the instruction chart from memory
- * @hchart_pointer: Exactly what it says on the tin.
+ * erase_chart - frees the instruction chart from memory
+ * @chart_pointer: Exactly what it says on the tin.
+ * Return: just returns void
  */
-void erasse_chart(instruct_t *chart_pointer)
+void erase_chart(instruct_t *chart_pointer)
 {
 	instruct_t  *tmp;
 

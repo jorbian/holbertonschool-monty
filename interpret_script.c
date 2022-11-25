@@ -34,7 +34,7 @@ int interpret_script(FILE *file_pointer)
 			free_tokens();
 			continue;
 		}
-		op_func = look_up_instruction(&chart_pointer, op_toks[0]);
+		op_func = look_up_instruct(&chart_pointer, op_toks[0]);
 		if (op_func == NULL)
 		{
 			wipe_stack(&stack_pointer);
@@ -56,7 +56,7 @@ int interpret_script(FILE *file_pointer)
 		free_tokens();
 	}
 	wipe_stack(&stack_pointer);
-	erasse_chart(chart_pointer);
+	erase_chart(chart_pointer);
 
 	if (line && *line == 0)
 	{
