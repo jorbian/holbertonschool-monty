@@ -70,8 +70,7 @@ void (*look_up_instruct(instruct_t **cp, char *t))(stack_t**, unsigned int)
 	instruct_t *current_entry = *cp;
 	int is_match = 0;
 
-	do
-	{
+	do {
 		is_match = (strcmp(t, current_entry->opcode) == 0);
 		if (is_match)
 			break;
