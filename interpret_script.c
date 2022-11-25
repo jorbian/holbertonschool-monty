@@ -1,5 +1,4 @@
 #include "monty.h"
-#include "op_code.h"
 /**
  * interpret_script - Primary function to execute a Monty bytecodes script.
  * @file_pointer: File descriptor for an open Monty bytecodes script.

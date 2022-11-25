@@ -2,10 +2,10 @@
 #define OPCODE_H
 
 /* MAKE SURE THESE ARE KEPT UPDATED AND MATCH! */
-#define NUM_OF_OPS 6
+#define NUM_OF_OPS 7
 #define NAME_BUFFER_SIZE 5
-#define OPCODE_NAMES {"push", "pall", "pint", "pop", "swap", "nop"}
-#define FUNCTIONS {push, pall, pint, pop, swap, nop}
+#define OPCODE_NAMES {"push", "pall", "pint", "pop", "swap", "nop", "add"}
+#define FUNCTIONS {push, pall, pint, pop, swap, nop, add}
 
 /**
 	* struct instruct_s - doubly-linked list of all the opcodes
