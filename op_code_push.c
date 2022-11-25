@@ -14,13 +14,13 @@ void push(stack_t **stack_pointer, unsigned int line_number)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		set_op_tok_error(malloc_error());
+		set_op_tok_error(throw_error(COULDNT_MALLOC, 0, ""));
 		return;
 	}
 
 	if (op_toks[1] == NULL)
 	{
-		set_op_tok_error(no_int_error(line_number));
+		set_op_tok_error(throw_error(CANT_PUSH, line_number, ""));
 		return;
 	}
 
@@ -30,7 +30,7 @@ void push(stack_t **stack_pointer, unsigned int line_number)
 			continue;
 		if (op_toks[1][i] < '0' || op_toks[1][i] > '9')
 		{
-			set_op_tok_error(no_int_error(line_number));
+			set_op_tok_error(throw_error(CANT_PUSH, line_number, ""));
 			return;
 		}
 	}

@@ -68,15 +68,16 @@ instruct_t *create_instruction(
 void (*look_up_instruct(instruct_t **cp, char *t))(stack_t**, unsigned int)
 {
 	instruct_t *current_entry = *cp;
+	int is_match = 0;
 
-	while (current_entry->next)
+	do
 	{
-		if (strcmp(t, current_entry->opcode) == 0)
+		is_match = (strcmp(t, current_entry->opcode) == 0);
+		if (is_match)
 			break;
-		current_entry = current_entry->next;
-	}
+	} while ((current_entry = current_entry->next));
 
-	if (current_entry)
+	if (is_match)
 		return (current_entry->f);
 	else
 		return (NULL);

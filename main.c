@@ -15,11 +15,11 @@ int main(int argc, char **argv)
 	int exit_code = EXIT_SUCCESS;
 
 	if (argc != 2)
-		return (usage_error());
+		return (throw_error(BAD_INPUT, 0, ""));
 
 	file_pointer = fopen(argv[1], "r");
 	if (!file_pointer)
-		return (f_open_error(argv[1]));
+		return (throw_error(BAD_FILE, 0, argv[1]));
 
 	exit_code = interpret_script(file_pointer);
 
