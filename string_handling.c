@@ -24,8 +24,10 @@ unsigned int num_of_tokens(void)
 {
 	unsigned int toks_len = 0;
 
-	while (op_toks[toks_len++])
-		;
+	while (op_toks[toks_len])
+	{
+		toks_len++;
+	}
 	return (toks_len);
 }
 

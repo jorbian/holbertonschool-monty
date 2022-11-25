@@ -25,7 +25,7 @@ int interpret_script(FILE *file_pointer);
 void set_op_tok_error(int error_code);
 int is_empty_line(char *line, char *delims);
 void (*get_op_func(char *opcode))(stack_t**, unsigned int);
-void clean_up(stack_t **stack_pointer, instruct_t *chart_pointer);
+void free_memory(stack_t *stack_pointer, instruct_t *chart_pointer);
 
 /* CUSTOM STANDARD LIBRARY FUNCTIONS */
 char **strtow(char *str, char *delims);

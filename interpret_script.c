@@ -14,7 +14,7 @@ int interpret_script(FILE *file_pointer)
 	void (*op_func)(stack_t**, unsigned int);
 
 	if (fill_chart_in(&chart_pointer) || initialize_stack(&stack_pointer))
-		return (EXIT_FAILURE);
+		exit((throw_error(COULDNT_MALLOC, 0, "")));
 
 	while (getline(&line, &len, file_pointer) != -1)
 	{
@@ -25,10 +25,8 @@ int interpret_script(FILE *file_pointer)
 		{
 			if (is_empty_line(line, DELIMS))
 				continue;
-			wipe_stack(&stack_pointer);
-			erase_chart(chart_pointer);
-
-			return (throw_error(COULDNT_MALLOC, 0, ""));
+			free_memory(stack_pointer, chart_pointer);
+			exit((throw_error(COULDNT_MALLOC, 0, "")));
 		}
 		else if (op_toks[0][0] == '#') /* comment line */
 		{
@@ -38,27 +36,22 @@ int interpret_script(FILE *file_pointer)
 		op_func = look_up_instruct(&chart_pointer, op_toks[0]);
 		if (op_func == NULL)
 		{
-			wipe_stack(&stack_pointer);
-			erase_chart(chart_pointer);
-			exit_status = throw_error(BAD_INSTRUCTION, line_number, op_toks[0]);
 			free_tokens();
-			exit(exit_status);
+			free_memory(stack_pointer, chart_pointer);
+			exit(throw_error(BAD_INSTRUCTION, line_number, op_toks[0]));
 		}
 		prev_tok_len = num_of_tokens();
 		op_func(&stack_pointer, line_number);
+
 		if (num_of_tokens() != prev_tok_len)
 		{
-			if (op_toks && op_toks[prev_tok_len])
-				exit_status = atoi(op_toks[prev_tok_len]);
-			else
-				exit(EXIT_FAILURE);
 			free_tokens();
-			break;
+			free_memory(stack_pointer, chart_pointer);
+			exit(EXIT_FAILURE);
 		}
 		free_tokens();
 	}
-	wipe_stack(&stack_pointer);
-	erase_chart(chart_pointer);
+	free_memory(stack_pointer, chart_pointer);
 
 	if (line && *line == 0)
 	{
