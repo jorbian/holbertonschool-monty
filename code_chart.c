@@ -82,21 +82,3 @@ void (*look_up_instruct(instruct_t **cp, char *t))(stack_t**, unsigned int)
 	else
 		return (NULL);
 }
-
-/**
- * erase_chart - frees the instruction chart from memory
- * @chart_pointer: Exactly what it says on the tin.
- * Return: just returns void
- */
-void erase_chart(instruct_t *chart_pointer)
-{
-	instruct_t  *tmp;
-
-	while (chart_pointer)
-	{
-		tmp = chart_pointer->next;
-		free(chart_pointer->opcode);
-		free(chart_pointer);
-		chart_pointer = tmp;
-	}
-}
