@@ -6,7 +6,7 @@
  * @message: the specific error message
  * @line: line number (if any) -- 0 otherwise
  * @string: additional string (if any) -- "" otherwise
- * 
+ *
  * Return: always returns EXIT_FAILURE
 */
 int throw_error(char *message, int line, char *string)
@@ -57,3 +57,4 @@ void set_op_tok_error(int error_code)
 	free(op_toks);
 	op_toks = new_toks;
 }
+
