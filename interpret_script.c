@@ -22,7 +22,7 @@ int interpret_script(FILE *file_pointer)
 		(exit_status != EXIT_FAILURE))
 	{
 		line_number++;
-		op_toks = strtow(line, DELIMS);
+		op_toks = tokenize_line(line, DELIMS);
 
 		if (op_toks == NULL)
 		{
