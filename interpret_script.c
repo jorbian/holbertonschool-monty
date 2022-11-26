@@ -14,9 +14,7 @@ int interpret_script(FILE *file_pointer)
 	void (*op_func)(stack_t**, unsigned int);
 
 	if ((fill_chart_in(&chart_pointer) || initialize_stack(&stack_pointer)))
-	{
-			exit_status = (throw_error(COULDNT_MALLOC, 0, ""));
-	}
+		exit_status = (throw_error(COULDNT_MALLOC, 0, ""));
 
 	while ((getline(&line, &len, file_pointer) != -1) &&
 		(exit_status != EXIT_FAILURE))

@@ -1,10 +1,4 @@
-#include <stdlib.h>
-
-char **tokenize_line(char *line, char *delims);
-int is_delim(char ch, char *delims);
-int get_word_length(char *line, char *delims);
-int get_word_count(char *line, char *delims);
-char *get_next_word(char *line, char *delims);
+#include "monty.h"
 
 /**
  * tokenize_line - takes a line and seperates its tokens
@@ -32,7 +26,7 @@ char **tokenize_line(char *line, char *delims)
 	while (i < word_count)
 	{
 		word_length = get_word_length(line, delims);
-		if (is_delim(*line, delims))
+		if (is_delimiter(*line, delims))
 		{
 			line = get_next_word(line, delims);
 		}
@@ -62,14 +56,14 @@ char **tokenize_line(char *line, char *delims)
 }
 
 /**
- * is_delim - checks if lineeam has delimitor char
+ * is_delimiter - checks if lineeam has delimitor char
  * @character: character in lineeam
  * @delims: Pointer to null terminated array of delimitors
  *
  * Return: 1 (success) 0 (failure)
  */
 
-int is_delim(char character, char *delims)
+int is_delimiter(char character, char *delims)
 {
 	int i = 0;
 
@@ -96,12 +90,12 @@ int get_word_length(char *word, char *delims)
 
 	while (*(word + i))
 	{
-		if (is_delim(word[i], delims))
+		if (is_delimiter(word[i], delims))
 			pending = 1;
 		else if (pending)
 			length_of_word++;
 
-		if (length_of_word > 0 && is_delim(word[i], delims))
+		if (length_of_word > 0 && is_delimiter(word[i], delims))
 			break;
 		i++;
 	}
@@ -121,7 +115,7 @@ int get_word_count(char *line, char *delims)
 
 	while (*(line + i))
 	{
-		if (is_delim(line[i], delims))
+		if (is_delimiter(line[i], delims))
 			pending = 1;
 		else if (pending)
 		{
@@ -147,7 +141,7 @@ char *get_next_word(char *line, char *delims)
 
 	while (*(line + i))
 	{
-		if (is_delim(line[i], delims))
+		if (is_delimiter(line[i], delims))
 			pending = 1;
 		else if (pending)
 			break;

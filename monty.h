@@ -27,8 +27,12 @@ int is_empty_line(char *line, char *delims);
 void (*get_op_func(char *opcode))(stack_t**, unsigned int);
 void free_memory(stack_t *stack_pointer, instruct_t *chart_pointer);
 
-/* CUSTOM STANDARD LIBRARY FUNCTIONS */
-char **strtow(char *str, char *delims);
+/* STRING HANDLIING */
+char **tokenize_line(char *line, char *delims);
+int is_delimiter(char character, char *delims);
+int get_word_length(char *line, char *delims);
+int get_word_count(char *line, char *delims);
+char *get_next_word(char *line, char *delims);
 char *get_int(int n);
 
 #endif
