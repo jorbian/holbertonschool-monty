@@ -26,7 +26,6 @@ int interpret_script(FILE *file_pointer)
 		{
 			if (is_empty_line(line, DELIMS))
 				continue;
-			free_memory(stack_pointer, chart_pointer);
 			return (throw_error(COULDNT_MALLOC, 0, ""));
 		}
 		else if (op_toks[0][0] == '#') /* comment line */
@@ -37,7 +36,6 @@ int interpret_script(FILE *file_pointer)
 		op_func = look_up_instruct(&chart_pointer, op_toks[0]);
 		if (op_func == NULL)
 		{
-			free_memory(stack_pointer, chart_pointer);
 			exit_status = throw_error(BAD_INSTRUCTION, line_number, op_toks[0]);
 			break;
 		}
