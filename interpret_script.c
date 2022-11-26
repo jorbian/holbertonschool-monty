@@ -39,11 +39,12 @@ int interpret_script(FILE *file_pointer)
 		{
 			free_memory(stack_pointer, chart_pointer);
 			exit_status = throw_error(BAD_INSTRUCTION, line_number, op_toks[0]);
+			break;
 		}
 		prev_tok_len = num_of_tokens();
 		op_func(&stack_pointer, line_number);
 
-		if (token_arr_len() != prev_tok_len)
+		if (num_of_tokens() != prev_tok_len)
 		{
 			if (op_toks && op_toks[prev_tok_len])
 				exit_status = atoi(op_toks[prev_tok_len]);
