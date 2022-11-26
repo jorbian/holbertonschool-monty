@@ -7,6 +7,7 @@
 #define COULDNT_MALLOC "Error: malloc failed\n"
 #define BAD_INSTRUCTION "L%d: unknown instruction %s\n"
 #define CANT_PUSH "L%d: usage: push integer\n"
+#define CANT_PINT "L%d: can't pint, stack empty\n"
 #define CANT_POP "L%d: can't pop an empty stack\n"
 #define CANT_SWAP "L%d: can't swap, stack too short\n"
 #define CANT_ADD "L%d: can't add, stack too short\n"

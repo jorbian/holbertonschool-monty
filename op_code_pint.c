@@ -10,7 +10,7 @@ void pint(stack_t **stack_pointer, unsigned int line_number)
 {
 	if ((*stack_pointer)->next == NULL)
 	{
-		set_op_tok_error(throw_error(UNKNOWN, 0, ""));
+		set_op_tok_error(throw_error(CANT_PINT, 0, ""));
 		return;
 	}
 	printf("%d\n", (*stack_pointer)->next->n);
