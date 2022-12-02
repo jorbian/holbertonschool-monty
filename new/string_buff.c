@@ -1,4 +1,4 @@
-#include "include/monty.h"
+#include "monty.h"
 
 /**
  * add_to_end - add a stringbuffer to the doubly linked list

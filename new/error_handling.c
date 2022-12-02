@@ -1,4 +1,4 @@
-#include "include/monty.h"
+#include "monty.h"
 
 /**
  * throw_error - prints relevant error message
